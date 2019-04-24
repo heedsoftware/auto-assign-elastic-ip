@@ -1,1 +1,1 @@
-# aws-scripts
+# Auto Assign Elastic IP
