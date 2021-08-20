@@ -52,7 +52,7 @@ attempt_to_assign_eip() {
 	local exit_code;
   	result=$( (aws ec2 associate-address --region $instance_region --instance-id $instance_id --allocation-id $1 --no-allow-reassociation) 2>&1 )
 	exit_code=$?
-	if ! exit_code; then
+	if [ "$exit_code" -ne 0 ]; then
 		echo "Failed to assign Elastic IP [$1] to Instance [$instance_id]. ERROR: $result"
 	fi
   return $exit_code
